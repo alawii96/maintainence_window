@@ -24,14 +24,14 @@ async fn main() -> Result<(), rds::Error> {
                 .pending_maintenance_action_details()
                 .unwrap()
                 .iter()
-                .map(|detail| format!("{:?}", "hmm_action_details"))
+                .map(|detail| format!("{:?}", detail.action()))
                 .collect::<Vec<String>>()
                 .join(","),
             auto_applied_after_date: action
                 .pending_maintenance_action_details()
                 .unwrap()
                 .iter()
-                .map(|detail| format!("{:?}", detail.auto_applied_after_date().unwrap()))
+                .map(|detail| format!("{:?}", detail.auto_applied_after_date()))
                 .collect::<Vec<String>>()
                 .join(","),
         })
